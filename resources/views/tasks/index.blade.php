@@ -8,12 +8,22 @@
     <ul class="list-group">
         @forelse($tasks as $task)
             <li class="list-group-item d-flex align-items-center justify-content-between py-3">
-                <p class="mb-0 fs-5 fw-medium">{{ $task->title }}</p>
-                @if($task->concluded == false)
-                    <p class="text-secondary mb-0">Pendente</p>
-                @elseif($task->concluded == true)
-                    <p class="text-success mb-0">Concluída</p>
-                @endif
+                <div>
+                    <p class="mb-0 fs-5 fw-medium">{{ $task->title }}</p>
+                    @if($task->concluded == false)
+                        <p class="text-secondary mb-0">Pendente</p>
+                    @elseif($task->concluded == true)
+                        <p class="text-success mb-0">Concluída</p>
+                    @endif
+                </div>
+                <div class="d-flex gap-2 bg-transparent border rounded py-1 px-2">
+                    <a href="#">
+                        <i class="bi bi-clipboard-x-fill fs-5 text-danger"></i>
+                    </a>
+                    <a href="#">
+                        <i class="bi bi-clipboard-check-fill fs-5 text-success"></i>
+                    </a>
+                </div>
             </li>
         @empty
             <p class="text-secondary text-center mt-5">Ainda não há nenhuma tarefa</p>
