@@ -7,16 +7,17 @@
     <title>{{ $title }}</title>
     <link rel="icon" type="image/svg" href="/clipboard.svg">
     @vite(['resources/css/app.css', 'resources/js/app.js'])
+    <link rel="stylesheet" href="{{ asset('css/fonts.css') }}">
 </head>
 <body class="bg-light">
-<div class="container">
-    <div class="d-flex justify-content-between align-items-center mt-3 mb-3">
-        <a href="/tasks" class="text-decoration-none text-black">
-            <h1 class="fw-semibold">{{ $title }}</h1>
-        </a>
+<div class="d-flex justify-content-between align-items-center px-3 py-3 mb-4 bg-secondary">
+    <a href="/tasks" class="text-decoration-none text-black">
+        <h1 class="fw-semibold text-light font-big-shoulders mb-0">{{ $title }}</h1>
+    </a>
 
-        {{ $headerActions ?? '' }}
-    </div>
+    {{ $headerActions ?? '' }}
+</div>
+<div class="container">
     {{ $slot }}
 </div>
 </body>
