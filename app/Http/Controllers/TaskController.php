@@ -28,4 +28,11 @@ class TaskController extends Controller
 
         return redirect('/tasks');
     }
+
+    public function destroy(int $id)
+    {
+        Task::destroy($id);
+
+        return redirect('/tasks');
+    }
 }
