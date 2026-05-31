@@ -1,6 +1,6 @@
 <x-layout title='Tarefas'>
     <x-slot:headerActions>
-        <a href="/tasks/create" class="btn btn-primary d-inline-flex gap-2">
+        <a href="/tasks/create" class="btn btn-secondary d-inline-flex gap-2">
             <i class="bi bi-clipboard-plus-fill"></i>
             Adicionar Tarefa
         </a>
