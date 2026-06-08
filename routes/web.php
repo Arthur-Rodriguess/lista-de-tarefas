@@ -8,8 +8,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/tasks', [TaskController::class, 'index']);
-Route::get('/tasks/create', [TaskController::class, 'create']);
-Route::post('/tasks/save', [TaskController::class, 'store']);
-Route::delete('/tasks/{id}', [TaskController::class, 'destroy']);
+Route::resource('/tasks', TaskController::class);
+
 Route::post('/tasks/{task}', CompleteTaskController::class);
