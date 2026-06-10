@@ -1,6 +1,6 @@
 <x-layout title='Tarefas'>
     <x-slot:headerActions>
-        <a href="/tasks/create" class="btn btn-secondary d-inline-flex gap-2">
+        <a href="{{ route("tasks.create") }}" class="btn btn-secondary d-inline-flex gap-2">
             <i class="bi bi-clipboard-plus-fill"></i>
             Adicionar Tarefa
         </a>
@@ -17,14 +17,14 @@
                     @endif
                 </div>
                     <div class="d-flex gap-2 bg-transparent border rounded py-1 px-2">
-                        <form action="/tasks/{{ $task->id }}" method="POST">
+                        <form action="{{ route("tasks.destroy", $task) }}" method="POST">
                             @csrf
                             @method('DELETE')
                             <button type="submit" class="border-0 bg-transparent p-0">
                                 <i class="bi bi-clipboard-x-fill fs-5 text-danger"></i>
                             </button>
                         </form>
-                        <form action="/tasks/{{ $task->id }}" method="POST">
+                        <form action="{{ route("tasks.conclude", $task) }}" method="POST">
                             @csrf
                             <button type="submit" class="border-0 bg-transparent p-0">
                                 <i class="bi bi-clipboard-check-fill fs-5 text-success"></i>
