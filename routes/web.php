@@ -10,4 +10,4 @@ Route::get('/', function () {
 
 Route::resource('/tasks', TaskController::class);
 
-Route::post('/tasks/{task}', CompleteTaskController::class);
+Route::post('/tasks/{task}', CompleteTaskController::class)->name("tasks.conclude");
