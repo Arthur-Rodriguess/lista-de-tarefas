@@ -17,10 +17,10 @@
                     @endif
                 </div>
                     <div class="d-flex gap-2 bg-transparent border rounded py-1 px-2">
-                        <form action="{{ route("tasks.destroy", $task) }}" method="POST">
+                        <form action="{{ route("tasks.destroy", $task) }}" method="POST" class="delete-form">
                             @csrf
                             @method('DELETE')
-                            <button type="submit" class="border-0 bg-transparent p-0">
+                            <button type="submit" class="border-0 bg-transparent p-0 delete-btn" data-task-title="{{ $task->title }}">
                                 <i class="bi bi-clipboard-x-fill fs-5 text-danger"></i>
                             </button>
                         </form>
@@ -36,4 +36,5 @@
             <p class="text-secondary text-center mt-5">Ainda não há nenhuma tarefa</p>
         @endforelse
     </ul>
+    <x-delete-modal></x-delete-modal>
 </x-layout>
