@@ -5,6 +5,13 @@
             Adicionar Tarefa
         </a>
     </x-slot:headerActions>
+
+    @isset($successMessage)
+        <div class="alert alert-success">
+            {{ $successMessage }}
+        </div>
+    @endisset
+
     <ul class="list-group">
         @forelse($tasks as $task)
             <li class="list-group-item d-flex align-items-center justify-content-between py-3">
