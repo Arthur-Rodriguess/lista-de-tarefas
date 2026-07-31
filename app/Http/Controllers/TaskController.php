@@ -7,10 +7,13 @@ use Illuminate\Http\Request;
 
 class TaskController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
         $tasks = Task::orderBy('created_at', 'desc')->get();
-        return view('tasks.index', ['tasks' => $tasks]);
+
+        $successMessage = $request->session()->get('success.message');
+
+        return view('tasks.index', ['tasks' => $tasks, 'successMessage' => $successMessage]);
     }
 
     public function create()
@@ -26,12 +29,16 @@ class TaskController extends Controller
         $task->title = $title;
         $task->save();
 
+        $request->session()->flash('success.message', 'Tarefa adicionada com sucesso');
+
         return redirect('/tasks');
     }
 
-    public function destroy(int $id)
+    public function destroy(Request $request, int $id)
     {
         Task::destroy($id);
+
+        $request->session()->flash('success.message', 'Tarefa removida com sucesso');
 
         return redirect('/tasks');
     }
